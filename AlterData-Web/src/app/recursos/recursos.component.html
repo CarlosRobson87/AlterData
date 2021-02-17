@@ -1,0 +1,20 @@
+<h1>Recursos</h1>
+
+<div >
+    <table class="table table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Recurso</th>
+                <th scope="col">Quantidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let recurso of recursos">
+                <th scope="row">{{recurso.nome}}</th>
+                <td>
+                    {{recurso.quantidade}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

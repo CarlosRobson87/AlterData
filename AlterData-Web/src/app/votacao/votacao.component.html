@@ -1,0 +1,33 @@
+<h1>Votação</h1>
+
+<div *ngIf="recursoSelecionado">
+    Recurso: {{recursoSelecionado}}
+    <br>
+    <form (ngSubmit)= "onSubmit()" #form="ngForm">
+        <div class="form-group">
+            <label>Comentário</label>
+            <input class="form-control" type="comentario" name="comentario" id="comentario" [(ngModel)]="votacao.comentario" placeholder="Comentário Obrigatório" required />
+        </div>
+        <button type="button" class="btn btn-outline-primary" (click)="cancelar()">Cancelar</button>
+        <button type="submit" class="btn btn-success" [disabled]="form.form.invalid">Votar</button>
+    </form>
+</div>
+
+<div *ngIf="!recursoSelecionado">
+    <table class="table table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Recurso</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let recurso of recursos">
+                <th scope="row">{{recurso.nome}}</th>
+                <td>
+                    <button class="btn btn-outline-primary" (click)="recursoSelect(recurso)">Votar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
